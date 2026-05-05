@@ -1,10 +1,14 @@
 remote_state {
   backend = "s3"
   config = {
-    bucket  = "atlantis-tfstate-yogesh"
-    key     = "${path_relative_to_include()}/terraform.tfstate"
-    region  = "us-east-1"
-    encrypt = true
+    bucket                      = "atlantis-tfstate-yogesh"
+    key                         = "${path_relative_to_include()}/terraform.tfstate"
+    region                      = "us-east-1"
+    encrypt                     = true
+    skip_bucket_ssencryption    = true
+    skip_bucket_root_access     = true
+    skip_bucket_enforced_tls    = true
+    skip_bucket_versioning      = true
   }
 
   generate = {
